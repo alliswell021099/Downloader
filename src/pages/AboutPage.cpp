@@ -15,7 +15,7 @@ AboutPage::AboutPage(QWidget* parent)
     root->addWidget(title);
 
     auto* body = new QLabel(
-        "QtVideoDownloader UI demo\n\n"
+        "Downloader UI demo\n\n"
         "This project provides a clean Qt6 Widgets interface for managing video downloads via yt-dlp.\n"
         "It includes a queue view, basic controls, and settings for yt-dlp path and output defaults.\n\n"
         "Note: Downloading from websites may be restricted by their Terms of Service and local laws."

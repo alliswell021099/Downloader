@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-project(QtVideoDownloader
+project(Downloader
   VERSION 0.1.0
   LANGUAGES CXX
 )
@@ -12,7 +12,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(Qt6 REQUIRED COMPONENTS Widgets Network)
 qt_standard_project_setup()
 
-qt_add_executable(QtVideoDownloader
+qt_add_executable(Downloader
   src/main.cpp
   src/MainWindow.h
   src/MainWindow.cpp
@@ -38,9 +38,9 @@ qt_add_executable(QtVideoDownloader
   src/pages/AboutPage.cpp
 )
 
-target_include_directories(QtVideoDownloader PRIVATE src)
-target_link_libraries(QtVideoDownloader PRIVATE Qt6::Widgets Qt6::Network)
+target_include_directories(Downloader PRIVATE src)
+target_link_libraries(Downloader PRIVATE Qt6::Widgets Qt6::Network)
 
-set_target_properties(QtVideoDownloader PROPERTIES
+set_target_properties(Downloader PROPERTIES
   WIN32_EXECUTABLE TRUE
 )

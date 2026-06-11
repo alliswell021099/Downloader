@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget* parent)
 
 void MainWindow::buildUi()
 {
-    setWindowTitle("QtVideoDownloader");
+    setWindowTitle("Downloader");
 
     auto* central = new QWidget();
     auto* mainLayout = new QVBoxLayout(central);

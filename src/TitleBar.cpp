@@ -15,7 +15,7 @@ TitleBar::TitleBar(QWidget* parent)
     layout->setContentsMargins(12, 0, 4, 0);
     layout->setSpacing(0);
 
-    m_title = new QLabel("QtVideoDownloader");
+    m_title = new QLabel("Downloader");
     m_title->setStyleSheet("color: #CFCFDE; font-size: 13px;");
     layout->addWidget(m_title);
 

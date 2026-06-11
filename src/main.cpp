@@ -7,7 +7,7 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    QApplication::setApplicationName("QtVideoDownloader");
+    QApplication::setApplicationName("Downloader");
     QApplication::setOrganizationName("Local");
 
     Theme::applyDark(app);
