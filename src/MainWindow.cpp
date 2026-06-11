@@ -53,7 +53,7 @@ void MainWindow::buildUi()
     mainLayout->setSpacing(0);
 
     auto* titleBar = new TitleBar(this);
-    titleBar->setTitle("");
+    titleBar->setTitle("Downloader");
     mainLayout->addWidget(titleBar);
 
     auto* root = new QHBoxLayout();
