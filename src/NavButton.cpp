@@ -93,23 +93,21 @@ void NavButton::paintEvent(QPaintEvent* /*e*/)
     QColor textColor;
 
     if (checked) {
-        bg = m_colors.checkedBg;
-        indicator = m_colors.indicator;
-        textColor = m_colors.checkedText;
+        bg = QColor(61, 111, 255);
+        indicator = QColor(255, 255, 255);
+        textColor = QColor(255, 255, 255);
     } else if (down) {
         bg = QColor(27, 27, 36);
-        indicator = m_colors.indicator;
-        indicator.setAlpha(150);
-        textColor = m_colors.hoverText;
+        indicator = Qt::transparent;
+        textColor = QColor(207, 207, 222);
     } else if (hover) {
-        bg = m_colors.hoverBg;
-        indicator = m_colors.indicator;
-        indicator.setAlpha(100);
-        textColor = m_colors.hoverText;
+        bg = QColor(24, 24, 32);
+        indicator = Qt::transparent;
+        textColor = QColor(235, 235, 235);
     } else {
         bg = Qt::transparent;
         indicator = Qt::transparent;
-        textColor = m_colors.normalText;
+        textColor = QColor(168, 168, 181);
     }
 
     QRect r = rect();
