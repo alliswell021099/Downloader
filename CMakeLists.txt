@@ -20,6 +20,10 @@ qt_add_executable(Downloader
   src/Theme.cpp
   src/TitleBar.h
   src/TitleBar.cpp
+  src/TitleButton.h
+  src/TitleButton.cpp
+  src/NavButton.h
+  src/NavButton.cpp
   src/DarkNotifyDialog.h
   src/DarkNotifyDialog.cpp
   src/DownloadItem.h

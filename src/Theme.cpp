@@ -61,10 +61,24 @@ void Theme::applyDark(QApplication& app)
         background: transparent;
         border: 1px solid transparent;
         border-radius: 10px;
-        padding: 6px 10px;
+        padding: 8px 12px;
+        color: #CFCFDE;
+        transition: all 150ms ease;
       }
-      QToolButton:hover { background: #1B1B24; border-color: #2A2A33; }
-      QToolButton:checked { background: #202034; border-color: #2E5BFF; }
+      QToolButton:hover { 
+        background: #1B1B24; 
+        border-color: #2A2A33;
+        border-radius: 10px;
+      }
+      QToolButton:checked { 
+        background: #202034; 
+        border-color: #2E5BFF;
+        border-radius: 10px;
+      }
+      QToolButton:pressed { 
+        background: #1A1A28;
+        border-radius: 10px;
+      }
       QGroupBox {
         border: 1px solid #2A2A33;
         border-radius: 12px;

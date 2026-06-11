@@ -12,6 +12,7 @@
 #include <QVBoxLayout>
 
 #include "DarkNotifyDialog.h"
+#include "NavButton.h"
 #include "TitleBar.h"
 #include "pages/AboutPage.h"
 #include "pages/NewDownloadPage.h"
@@ -61,10 +62,10 @@ void MainWindow::buildUi()
     root->setSpacing(0);
 
     auto* nav = new QWidget();
-    nav->setFixedWidth(220);
+    nav->setFixedWidth(224);
     nav->setStyleSheet("background: #0F0F12; border-right: 1px solid #2A2A33;");
     auto* navLay = new QVBoxLayout(nav);
-    navLay->setContentsMargins(12, 12, 12, 12);
+    navLay->setContentsMargins(8, 12, 16, 12);
     navLay->setSpacing(8);
 
     auto* appTitle = new QLabel("Downloader");
@@ -80,19 +81,13 @@ void MainWindow::buildUi()
     m_navGroup->setExclusive(true);
 
     auto mkNav = [&](const QString& text) {
-        auto* b = new QToolButton();
-        b->setText(text);
-        b->setCheckable(true);
-        b->setToolButtonStyle(Qt::ToolButtonTextOnly);
-        b->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        b->setMinimumHeight(36);
-        b->setStyleSheet("QToolButton { text-align: left; padding-left: 12px; }");
+        auto* b = new NavButton(text);
         m_navGroup->addButton(b);
         navLay->addWidget(b);
         return b;
     };
 
-    auto* navNew = mkNav("New download");
+    auto* navNew = mkNav("Download");
     auto* navQueue = mkNav("Queue");
     auto* navSettings = mkNav("Settings");
     auto* navAbout = mkNav("About");

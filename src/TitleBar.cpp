@@ -3,7 +3,8 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMouseEvent>
-#include <QPushButton>
+
+#include "TitleButton.h"
 
 TitleBar::TitleBar(QWidget* parent)
     : QWidget(parent)
@@ -12,7 +13,7 @@ TitleBar::TitleBar(QWidget* parent)
     setStyleSheet("TitleBar { background: #0F0F12; border-bottom: 1px solid #2A2A33; }");
 
     auto* layout = new QHBoxLayout(this);
-    layout->setContentsMargins(12, 0, 4, 0);
+    layout->setContentsMargins(12, 0, 0, 0);
     layout->setSpacing(0);
 
     m_title = new QLabel("Downloader");
@@ -21,52 +22,27 @@ TitleBar::TitleBar(QWidget* parent)
 
     layout->addStretch(1);
 
-    auto btnStyle = QStringLiteral(R"(
-        QPushButton {
-            background: transparent;
-            border: none;
-            color: #A8A8B5;
-            min-width: 46px;
-            min-height: 36px;
-        }
-        QPushButton:hover {
-            background: #1B1B24;
-            color: #EBEBEB;
-        }
-        QPushButton#closeBtn:hover {
-            background: #C42B1C;
-            color: white;
-        }
-    )");
-
-    m_minBtn = new QPushButton("—");
-    m_minBtn->setStyleSheet(btnStyle);
-    m_minBtn->setCursor(Qt::PointingHandCursor);
-    connect(m_minBtn, &QPushButton::clicked, this, [this]() {
+    m_minBtn = new TitleButton(TitleButton::Minimize);
+    connect(m_minBtn, &TitleButton::clicked, this, [this]() {
         if (QWidget* w = window()) w->showMinimized();
     });
     layout->addWidget(m_minBtn);
 
-    m_maxBtn = new QPushButton("□");
-    m_maxBtn->setStyleSheet(btnStyle);
-    m_maxBtn->setCursor(Qt::PointingHandCursor);
-    connect(m_maxBtn, &QPushButton::clicked, this, [this]() {
+    m_maxBtn = new TitleButton(TitleButton::Maximize);
+    connect(m_maxBtn, &TitleButton::clicked, this, [this]() {
         QWidget* w = window();
         if (w->isMaximized()) {
             w->showNormal();
-            m_maxBtn->setText("□");
+            m_maxBtn->setGlyph(TitleButton::Maximize);
         } else {
             w->showMaximized();
-            m_maxBtn->setText("❐");
+            m_maxBtn->setGlyph(TitleButton::Restore);
         }
     });
     layout->addWidget(m_maxBtn);
 
-    m_closeBtn = new QPushButton("×");
-    m_closeBtn->setObjectName("closeBtn");
-    m_closeBtn->setStyleSheet(btnStyle);
-    m_closeBtn->setCursor(Qt::PointingHandCursor);
-    connect(m_closeBtn, &QPushButton::clicked, this, [this]() {
+    m_closeBtn = new TitleButton(TitleButton::Close);
+    connect(m_closeBtn, &TitleButton::clicked, this, [this]() {
         if (QWidget* w = window()) w->close();
     });
     layout->addWidget(m_closeBtn);
@@ -106,10 +82,10 @@ void TitleBar::mouseDoubleClickEvent(QMouseEvent* e)
         QWidget* w = window();
         if (w->isMaximized()) {
             w->showNormal();
-            m_maxBtn->setText("□");
+            m_maxBtn->setGlyph(TitleButton::Maximize);
         } else {
             w->showMaximized();
-            m_maxBtn->setText("❐");
+            m_maxBtn->setGlyph(TitleButton::Restore);
         }
     }
     QWidget::mouseDoubleClickEvent(e);

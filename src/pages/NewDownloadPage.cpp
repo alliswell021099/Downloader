@@ -19,7 +19,7 @@ NewDownloadPage::NewDownloadPage(QWidget* parent)
     root->setContentsMargins(18, 18, 18, 18);
     root->setSpacing(12);
 
-    auto* title = new QLabel("New download");
+    auto* title = new QLabel("Download");
     title->setStyleSheet("font-size: 20px; font-weight: 700;");
     root->addWidget(title);
 

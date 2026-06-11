@@ -5,7 +5,7 @@
 
 class QLabel;
 class QMouseEvent;
-class QPushButton;
+class TitleButton;
 
 class TitleBar final : public QWidget
 {
@@ -23,9 +23,9 @@ protected:
 
 private:
     QLabel* m_title = nullptr;
-    QPushButton* m_minBtn = nullptr;
-    QPushButton* m_maxBtn = nullptr;
-    QPushButton* m_closeBtn = nullptr;
+    TitleButton* m_minBtn = nullptr;
+    TitleButton* m_maxBtn = nullptr;
+    TitleButton* m_closeBtn = nullptr;
     QPoint m_dragStart;
     bool m_dragging = false;
 };
